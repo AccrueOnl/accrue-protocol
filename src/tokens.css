@@ -1,0 +1,72 @@
+/*
+  TOKENS — the only file in the project allowed to contain colour literals.
+  Everything else references these custom properties (or reads them at runtime).
+  WRITTEN BY tools/sample-brand.mjs. Do not edit by hand; re-run the tool.
+
+  SAMPLED PALETTE (replaces the earlier achromatic placeholder). Provenance:
+  Brand gradient --brand-1..6 (sorted by hue): k-means, k=6, in OKLab, over the saturated opaque pixels
+    of brand/LOGO ACCRUE PNG...png (every 5th pixel, farthest-point init, 30 iterations); each centroid is
+    snapped to the nearest real pixel coordinate:
+      --brand-1  (735, 920)  rgb(252 67 99)  share 11.2%
+      --brand-2  (727, 1144)  rgb(254 144 37)  share 11.9%
+      --brand-3  (585, 1325)  rgb(224 194 20)  share 16.2%
+      --brand-4  (1152, 889)  rgb(102 148 253)  share 18.2%
+      --brand-5  (979, 945)  rgb(183 89 239)  share 22.7%
+      --brand-6  (795, 884)  rgb(238 55 190)  share 19.9%
+  --paper-raised  reference/ACCRUE 1.jpg.jpeg @ (20, 20) rgb(255 255 255)
+  --paper         reference/SAMPUL  ACCRUE JPG.jpg.jpeg @ (20, 20) rgb(237 235 236)
+  --ink           reference/ACCRUE 1.jpg.jpeg @ (179, 58) rgb(0 1 9)  (darkest wordmark pixel)
+  --accent        reference/ACCRUE 1.jpg.jpeg @ (158, 257) rgb(92 160 243)  (k-means k=1 over headline pixels)
+  --navy          reference/ACCRUE 1.jpg.jpeg @ (414, 456) rgb(65 85 120)  (k-means k=2 over body text, darker cluster)
+  --night         reference/SAMPUL  ACCRUE JPG.jpg.jpeg @ (520, 400) rgb(7 7 7)  (k-means k=1 over terminal casing)
+  Everything else is DERIVED from those samples: same hue and chroma with a changed lightness
+  (--paper-sunk, --night-raised) or the same colour with an alpha (hairlines, glass, shadows, skeletons).
+  brand/LOGO ACCRUE PNG...png carries 3,359,470 pure-black fully transparent pixels,
+  so every resize of it (favicon, nav logo) is done in premultiplied alpha.
+*/
+:root {
+  --brand-1: oklch(0.6626 0.2193 16.15);
+  --brand-2: oklch(0.7567 0.1704 57.85);
+  --brand-3: oklch(0.8153 0.1653 97.62);
+  --brand-4: oklch(0.6827 0.1631 264.64);
+  --brand-5: oklch(0.6436 0.2231 310.47);
+  --brand-6: oklch(0.6601 0.2501 341.15);
+  --accent: oklch(0.6975 0.141 254.46);
+  --navy: oklch(0.4484 0.063 261.26);
+
+  --paper: oklch(0.9419 0.0025 345.21);
+  --paper-raised: oklch(1 0 0);
+  --paper-sunk: oklch(0.9069 0.0025 345.21);
+  --ink: oklch(0.0766 0.035 261.82);
+  --ink-strong: oklch(0.0766 0.035 261.82);
+  --ink-soft: oklch(0.4484 0.063 261.26);
+  --ink-faint: oklch(0.4484 0.063 261.26 / 0.62);
+  --hairline: oklch(0.4484 0.063 261.26 / 0.12);
+  --hairline-strong: oklch(0.4484 0.063 261.26 / 0.24);
+
+  --night: oklch(0.1286 0 0);
+  --night-raised: oklch(0.1886 0 0);
+  --on-night: oklch(1 0 0);
+  --on-night-soft: oklch(1 0 0 / 0.72);
+  --on-night-faint: oklch(1 0 0 / 0.44);
+  --night-hairline: oklch(1 0 0 / 0.22);
+  --night-glass: oklch(0.1286 0 0 / 0.5);
+
+  --dither-lo: var(--night);
+  --dither-hi: var(--brand-3);
+
+  --shadow-soft: oklch(0.4484 0.063 261.26 / 0.08);
+  --shadow-lift: oklch(0.4484 0.063 261.26 / 0.16);
+  --flash: oklch(0.6975 0.141 254.46 / 0.22);
+  --flash-night: oklch(1 0 0 / 0.28);
+  --skeleton-a: oklch(0.4484 0.063 261.26 / 0.07);
+  --skeleton-b: oklch(0.4484 0.063 261.26 / 0.16);
+  --skeleton-night-a: oklch(1 0 0 / 0.08);
+  --skeleton-night-b: oklch(1 0 0 / 0.22);
+
+  --warn: var(--brand-4);
+  --focus: var(--ink);
+
+  --preload-top: var(--night);
+  --preload-bottom: var(--accent);
+}

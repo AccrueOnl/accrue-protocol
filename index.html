@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script>document.documentElement.classList.add("js")</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accrue: growth that picks up the tab</title>
+  <meta name="description" content="Accrue turns returns on dollar-pegged coins into purchasing power on Robinhood Chain. The base amount remains intact; just the growth is usable." />
+  <meta name="theme-color" content="%THEME_COLOR%" />
+  <link rel="canonical" href="https://accrue.onl/" />
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Accrue" />
+  <meta property="og:title" content="Accrue: growth that picks up the tab" />
+  <meta property="og:description" content="Dollar-pegged coins grow on Robinhood Chain; just the growth is available at checkout." />
+  <meta property="og:url" content="https://accrue.onl/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image" content="https://accrue.onl/og.jpg" />
+  <meta property="og:image:width" content="1500" />
+  <meta property="og:image:height" content="500" />
+  <meta name="twitter:image" content="https://accrue.onl/og.jpg" />
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+  <div class="progress" id="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+  <!-- Top strip: contract slot (left) and socials (right). Rendered from the register. -->
+  <header class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <div class="ca-slot" id="ca-slot" data-state="absent">
+        <span class="ca-tag">CA</span>
+        <button class="ca-btn" id="ca-btn" type="button" aria-disabled="true" disabled>
+          <span class="ca-val" id="ca-val">Not announced yet</span>
+          <svg class="ca-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+        </button>
+      </div>
+      <div class="socials" id="socials">
+        <span class="social-slot" data-key="x"></span>
+        <span class="social-slot" data-key="github"></span>
+      </div>
+    </div>
+  </header>
+
+  <main id="site">
+    <section class="hero-wrap" id="home">
+      <div class="stage" id="stage">
+        <nav class="nav anim drop" data-delay="80" aria-label="Primary">
+          <a class="logo" href="#home" aria-label="Accrue, top of page">
+            <img class="logo-mark" src="/logo-256.png" alt="" width="256" height="256" />
+            <span class="logo-word">accrue</span>
+          </a>
+          <div class="links">
+            <a href="#flow">Method</a>
+            <a href="#rules">Ground rules</a>
+            <a href="#chain">The chain</a>
+          </div>
+          <a class="contact" href="#chain">See the pulse</a>
+        </nav>
+
+        <div class="headline-block">
+          <div class="status-pill anim rise" data-delay="300" id="status-pill" data-status="loading">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span class="status-text" id="status-text">Reading the chain</span>
+          </div>
+          <h1 class="headline" aria-label="Growth picks up the tab.">
+            <span class="line l1" data-letters data-start="340">Growth picks</span>
+            <span class="line l2" data-letters data-start="600">up the <span class="accent">tab.</span></span>
+          </h1>
+          <p class="subline words" data-start="660" data-stagger="22">Park dollar-pegged coins on Robinhood Chain, watch returns build block by block, then tap to check out against that growth alone. The base amount remains intact.</p>
+          <div class="hero-actions">
+            <a class="cta anim rise" href="#chain" data-delay="780">
+              <span class="circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+              Watch the meter
+            </a>
+            <div class="note-pill anim rise" data-delay="840"><p>Each figure on this page is pulled fresh from public sources.</p></div>
+          </div>
+        </div>
+
+        <div class="panel anim scale" id="panel" data-delay="140">
+          <div class="dither-bg" data-parallax="0.06"><canvas id="dither" aria-hidden="true"></canvas></div>
+          <p class="overline">Pulse of the chain, as it happens</p>
+          <div class="stat-cards">
+            <div class="stat-card"><span class="val" data-live="block"><span class="skeleton" aria-hidden="true"></span></span><span class="lab">Latest block</span></div>
+            <div class="stat-card"><span class="val" data-live="gas"><span class="skeleton" aria-hidden="true"></span></span><span class="lab">Gas, gwei</span></div>
+            <div class="stat-card"><span class="val" data-live="tvl"><span class="skeleton" aria-hidden="true"></span></span><span class="lab">Capital on chain</span></div>
+          </div>
+        </div>
+
+        <div class="preloader" id="preloader" aria-hidden="true">
+          <div class="curtain"><div class="fill" id="fill"></div></div>
+          <div class="counter" id="counter">0%</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="flow">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal"><span class="dot"></span>Method</span>
+          <h2 class="h2 reveal">Four beats, <span class="accent">no detours.</span></h2>
+        </div>
+        <div class="steps">
+          <div class="step reveal"><div class="num">1</div><h3>Fund</h3><p>Dollar-pegged coins turn into a base amount, quietly doing their job on Robinhood Chain.</p></div>
+          <div class="step reveal"><div class="num">2</div><h3>Grow</h3><p>Returns accumulate with each block, tracked apart from the base amount so growth and base cannot blur.</p></div>
+          <div class="step reveal"><div class="num">3</div><h3>Tap</h3><p>Checkout consumes growth alone. A purchase bigger than that sum is refused, flat out.</p></div>
+          <div class="step reveal"><div class="num">4</div><h3>Exit</h3><p>Move the base amount out to an address you control, at a moment of your choosing. No other event can set it off.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rules">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal"><span class="dot"></span>Ground rules</span>
+          <h2 class="h2 reveal">Small surface. <span class="accent">Hard edges.</span></h2>
+        </div>
+        <div class="features">
+          <div class="feature reveal"><div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 17h16"/><path d="M9 3 7 21M17 3l-2 18"/></svg></div><h3>Dual counters</h3><p>The base amount and grown portion are tracked apart. Purchases can reach just the latter.</p></div>
+          <div class="feature reveal"><div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Refusal over compromise</h3><p>When a purchase exceeds what has grown, the purchase is turned away entirely. No gap is covered from the base.</p></div>
+          <div class="feature reveal"><div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Silence means stop</h3><p>When a chain lookup stalls or a figure is absent, the usable amount counts as empty, so the purchase is turned away.</p></div>
+          <div class="feature reveal"><div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="M3 7l9 5 9-5M12 12v10"/></svg></div><h3>A lone venue</h3><p>Growth originates in a lone venue on Robinhood Chain: ordinary borrower fees, with no gearing and no exotic tactics.</p></div>
+          <div class="feature reveal"><div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div><h3>Exit on command</h3><p>The base amount departs solely at your instruction, fully, or by portions, sent to an address you control.</p></div>
+          <div class="feature reveal"><div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Moves with demand</h3><p>Returns drift with borrowing demand. Each figure on this page is a reading, not a promise.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="band-wrap" id="chain">
+      <div class="band-inner">
+        <div class="band reveal">
+          <div class="glow" data-parallax="-0.05"></div>
+          <div class="band-grid">
+            <div class="band-copy">
+              <span class="eyebrow"><span class="dot"></span>The chain</span>
+              <h2>Counting on <span class="accent">Robinhood Chain.</span></h2>
+              <p>An EVM chain registered under <span data-reg="chainId"></span>. The figures beside this text are pulled from public sources each time you load this page, then refreshed while you stay.</p>
+            </div>
+            <div class="band-stats">
+              <div class="band-stat"><p class="val" data-live="block-big"><span class="skeleton" aria-hidden="true"></span></p><p class="lab">Latest block</p></div>
+              <div class="band-stat"><p class="val" data-live="gas-big"><span class="skeleton" aria-hidden="true"></span></p><p class="lab">Gas price, gwei</p></div>
+              <div class="band-stat"><p class="val" data-live="tvl-big"><span class="skeleton" aria-hidden="true"></span></p><p class="lab">Capital on chain, USD</p></div>
+              <div class="band-stat"><p class="val" data-reg="chainId"></p><p class="lab">Network identifier</p></div>
+            </div>
+          </div>
+          <div class="pairs" id="pairs" aria-live="polite">
+            <div class="pairs-head"><span>Active pairs across the network</span><span class="pairs-src">via DexScreener</span></div>
+            <ul class="pairs-list" id="pairs-list">
+              <li class="pair-row skeleton-row"><span class="skeleton" aria-hidden="true"></span></li>
+              <li class="pair-row skeleton-row"><span class="skeleton" aria-hidden="true"></span></li>
+              <li class="pair-row skeleton-row"><span class="skeleton" aria-hidden="true"></span></li>
+              <li class="pair-row skeleton-row"><span class="skeleton" aria-hidden="true"></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="closing">
+      <div class="closing-inner">
+        <h2 class="reveal">Start the clock. <span class="accent">Watch it run.</span></h2>
+        <p class="reveal">No sign-up and no installs. Scroll up; the meter is ticking away.</p>
+        <a class="cta-big reveal" href="#home">
+          <span class="circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></span>
+          Jump to the top
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="brand">
+        <a class="logo" href="#home" aria-label="Accrue, top of page">
+          <img class="logo-mark" src="/logo-256.png" alt="" width="256" height="256" />
+          <span class="logo-word">accrue</span>
+        </a>
+        <p>Growth that picks up the tab, on Robinhood Chain.</p>
+        <p class="fine">Accrue stands apart from Robinhood and is not endorsed by it. Readings originate at third-party endpoints and may lag or fail.</p>
+      </div>
+      <div class="cols">
+        <div class="col"><h4>Page</h4><a href="#flow">Method</a><a href="#rules">Ground rules</a><a href="#chain">The chain</a></div>
+        <div class="col" id="source-col"><h4>Sources</h4></div>
+      </div>
+    </div>
+  </footer>
+  <div class="footer-base"><div class="footer-base-inner"><span data-reg="domain"></span><span>Made for Robinhood Chain</span></div></div>
+</body>
+</html>

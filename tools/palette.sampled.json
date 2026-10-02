@@ -1,0 +1,192 @@
+{
+  "generatedBy": "tools/sample-brand.mjs",
+  "files": {
+    "brand/LOGO ACCRUE PNG...png": {
+      "width": 2000,
+      "height": 2000,
+      "bitDepth": 8,
+      "colourType": 6,
+      "interlace": 0,
+      "alpha": {
+        "transparent": 3359470,
+        "partial": 11772,
+        "opaque": 628758
+      },
+      "pureBlackTransparentPixels": 3359470
+    },
+    "brand/LOGO ACCRUE PNG.png": {
+      "width": 2000,
+      "height": 2000,
+      "bitDepth": 8,
+      "colourType": 6,
+      "interlace": 0,
+      "alpha": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 4000000
+      },
+      "pureBlackTransparentPixels": 0
+    }
+  },
+  "samples": {
+    "brand-1": {
+      "file": "brand/LOGO ACCRUE PNG...png",
+      "x": 735,
+      "y": 920,
+      "rgb": [
+        252,
+        67,
+        99
+      ],
+      "share": 0.112,
+      "method": "k-means k=6 in OKLab over saturated opaque logo pixels, snapped to nearest real pixel"
+    },
+    "brand-2": {
+      "file": "brand/LOGO ACCRUE PNG...png",
+      "x": 727,
+      "y": 1144,
+      "rgb": [
+        254,
+        144,
+        37
+      ],
+      "share": 0.119,
+      "method": "k-means k=6 in OKLab over saturated opaque logo pixels, snapped to nearest real pixel"
+    },
+    "brand-3": {
+      "file": "brand/LOGO ACCRUE PNG...png",
+      "x": 585,
+      "y": 1325,
+      "rgb": [
+        224,
+        194,
+        20
+      ],
+      "share": 0.162,
+      "method": "k-means k=6 in OKLab over saturated opaque logo pixels, snapped to nearest real pixel"
+    },
+    "brand-4": {
+      "file": "brand/LOGO ACCRUE PNG...png",
+      "x": 1152,
+      "y": 889,
+      "rgb": [
+        102,
+        148,
+        253
+      ],
+      "share": 0.182,
+      "method": "k-means k=6 in OKLab over saturated opaque logo pixels, snapped to nearest real pixel"
+    },
+    "brand-5": {
+      "file": "brand/LOGO ACCRUE PNG...png",
+      "x": 979,
+      "y": 945,
+      "rgb": [
+        183,
+        89,
+        239
+      ],
+      "share": 0.227,
+      "method": "k-means k=6 in OKLab over saturated opaque logo pixels, snapped to nearest real pixel"
+    },
+    "brand-6": {
+      "file": "brand/LOGO ACCRUE PNG...png",
+      "x": 795,
+      "y": 884,
+      "rgb": [
+        238,
+        55,
+        190
+      ],
+      "share": 0.199,
+      "method": "k-means k=6 in OKLab over saturated opaque logo pixels, snapped to nearest real pixel"
+    },
+    "paper-raised": {
+      "file": "reference/ACCRUE 1.jpg.jpeg",
+      "x": 20,
+      "y": 20,
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "method": "real pixel, slide background"
+    },
+    "paper": {
+      "file": "reference/SAMPUL  ACCRUE JPG.jpg.jpeg",
+      "x": 20,
+      "y": 20,
+      "rgb": [
+        237,
+        235,
+        236
+      ],
+      "method": "real pixel, cover background"
+    },
+    "ink": {
+      "file": "reference/ACCRUE 1.jpg.jpeg",
+      "x": 179,
+      "y": 58,
+      "rgb": [
+        0,
+        1,
+        9
+      ],
+      "method": "darkest pixel of the ACCRUE wordmark"
+    },
+    "accent": {
+      "file": "reference/ACCRUE 1.jpg.jpeg",
+      "x": 158,
+      "y": 257,
+      "rgb": [
+        92,
+        160,
+        243
+      ],
+      "method": "k-means k=1 over headline pixels, snapped"
+    },
+    "navy": {
+      "file": "reference/ACCRUE 1.jpg.jpeg",
+      "x": 414,
+      "y": 456,
+      "rgb": [
+        65,
+        85,
+        120
+      ],
+      "method": "k-means k=2 over body text pixels, darker cluster, snapped"
+    },
+    "night": {
+      "file": "reference/SAMPUL  ACCRUE JPG.jpg.jpeg",
+      "x": 520,
+      "y": 400,
+      "rgb": [
+        7,
+        7,
+        7
+      ],
+      "method": "k-means k=1 over terminal casing pixels, snapped"
+    }
+  },
+  "icons": {
+    "source": "brand/LOGO ACCRUE PNG...png",
+    "alphaBBox": {
+      "minx": 453,
+      "miny": 505,
+      "maxx": 1546,
+      "maxy": 1494
+    },
+    "cropSquare": {
+      "x": 387,
+      "y": 387,
+      "s": 1226
+    },
+    "resize": "premultiplied box filter",
+    "outputs": [
+      "public/favicon-32.png",
+      "public/apple-touch-icon.png",
+      "public/logo-256.png"
+    ],
+    "ogImage": "public/og.jpg <- reference/SAMPUL  ACCRUE JPG.jpg.jpeg"
+  }
+}
